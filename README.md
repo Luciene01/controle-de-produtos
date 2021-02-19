@@ -19,7 +19,7 @@ $ cd controle-de-produtos
 # Executando aplicação
 $ mvnw spring-boot:run
 
-# acesse no navegador localhost:5555
+# acesse no navegador localhost:8080
 ```
 
 #### 🛠 Tecnologias
