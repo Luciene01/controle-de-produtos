@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem - estoques</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c25abe3fb5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Controle de produtos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Início</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Adicionar
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/add/categoria">Categoria</a>
+                    <a class="dropdown-item" href="/add/produto">Produto</a>
+                    <a class="dropdown-item" href="/add/estoque">Estoque</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Listar
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/listar/categorias">Categorias</a>
+                    <a class="dropdown-item" href="/listar/produtos">Produtos</a>
+                    <a class="dropdown-item active" href="/listar/estoques">Estoques</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 style="text-align: center; font-weight: bolder;">Produtos</h1>
+    <table class="table" style="text-align: center;">
+        <tr class="bg-dark text-white">
+            <th>Código</th>
+            <th>Produto</th>
+            <th>Quantidade Comprada</th>
+            <th>Quantidade Consumida</th>
+            <th>Data de validade</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        <tr th:each="estoque : ${estoques}" style="text-align: center;">
+            <td th:text="${estoque.id}"></td>
+            <td th:text="${estoque.produto.nome}"></td>
+            <td th:text="${estoque.quantidadeComprada}"></td>
+            <td th:text="${estoque.quantidadeConsumida}"></td>
+            <td th:text="${estoque.dataValidade}"></td>
+            <th><a th:href="@{'/editar/estoque'(id=${estoque.id})}" class="btn btn-primary">
+                <i class="fas fa-edit"></i>
+            </a></th>
+            <th><a th:href="@{'/deletar/estoque'(id=${estoque.id})}" class="btn btn-danger">
+                <i class="fas fa-trash"></i>
+            </a></th>
+        </tr>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
