@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 
-@Entity
+@Entity(name = "estoques")
 public class Estoque {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +26,7 @@ public class Estoque {
     private Integer quantidadeComprada;
 
     @NotNull
-    private Integer quantidadeConsumida;
+    private Integer quantidadeVendida;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataValidade;
@@ -52,11 +52,11 @@ public class Estoque {
         this.quantidadeComprada = quantidadeComprada;
     }
 
-    public Integer getQuantidadeConsumida() {
-        return quantidadeConsumida;
+    public Integer getQuantidadeVendida() {
+        return quantidadeVendida;
     }
-    public void setQuantidadeConsumida(Integer quantidadeConsumida) {
-        this.quantidadeConsumida = quantidadeConsumida;
+    public void setQuantidadeVendida(Integer quantidadeVendida) {
+        this.quantidadeVendida = quantidadeVendida;
     }
 
     public LocalDate getDataValidade() {
