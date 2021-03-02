@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.Column;
 
 
-@Entity
+@Entity(name = "categorias")
 public class Categoria {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
