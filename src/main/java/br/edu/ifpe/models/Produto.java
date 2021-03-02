@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 
-@Entity
+@Entity(name = "produtos")
 public class Produto {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
