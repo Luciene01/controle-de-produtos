@@ -3,8 +3,6 @@ package br.edu.ifpe.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-import br.edu.ifpe.models.*;
-
 
 @Entity(name = "users")
 public class User {
