@@ -3,6 +3,7 @@ package br.edu.ifpe.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -17,7 +18,7 @@ public class Estoque {
     @EmbeddedId 
     private EstoqueId id;
 
-    @ManyToOne @NotNull
+    @ManyToOne(cascade = CascadeType.REMOVE) @NotNull
     @JoinColumn(name = "produto_FK")
     private Produto produto;
 
