@@ -75,7 +75,7 @@ public class EstoqueController {
     @GetMapping("deletar/estoque")
     public String deletarEstoque(@RequestParam Integer id) {
         Estoque estoque = this.estoqueDAO.getOne(id);
-        this.estoqueDAO.deleteById(estoque.getId());
+        this.estoqueDAO.deleteById(estoque.getLote());
 
         return "redirect:/listar/estoques";
     }
