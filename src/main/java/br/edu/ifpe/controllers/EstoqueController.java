@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.edu.ifpe.DAO.EstoqueDAO;
 import br.edu.ifpe.DAO.ProdutoDAO;
 import br.edu.ifpe.models.Estoque;
+import br.edu.ifpe.models.EstoqueId;
 
 import javax.validation.Valid;
 
@@ -34,7 +35,7 @@ public class EstoqueController {
     }
 
     @GetMapping("editar/estoque")
-    public String editarEstoque(@RequestParam Integer id, Model model) {
+    public String editarEstoque(@RequestParam EstoqueId id, Model model) {
         Estoque estoque = this.estoqueDAO.getOne(id);
         model.addAttribute("estoque", estoque);
         model.addAttribute("produtos", this.produtoDAO.findAll());
@@ -73,9 +74,9 @@ public class EstoqueController {
     }
 
     @GetMapping("deletar/estoque")
-    public String deletarEstoque(@RequestParam Integer id) {
+    public String deletarEstoque(@RequestParam EstoqueId id) {
         Estoque estoque = this.estoqueDAO.getOne(id);
-        this.estoqueDAO.deleteById(estoque.getLote());
+        this.estoqueDAO.deleteById(estoque.getId());
 
         return "redirect:/listar/estoques";
     }
