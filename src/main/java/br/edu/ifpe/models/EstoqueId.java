@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class EstoqueId  implements Serializable {
     private static final long serialVersionUID = 5114770736427051887L;
     
-    @Column(name = "lote") @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "lote") @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer lote;
 
     @Column(name = "produto_id")
