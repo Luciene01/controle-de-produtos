@@ -2,10 +2,9 @@ package br.edu.ifpe.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -15,10 +14,11 @@ import java.time.LocalDate;
 @Entity(name = "estoques")
 public class Estoque {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer lote;
+    @EmbeddedId 
+    private EstoqueId id;
 
     @ManyToOne @NotNull
+    @JoinColumn(name = "produto_FK")
     private Produto produto;
 
     @NotNull
@@ -30,8 +30,8 @@ public class Estoque {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataValidade;
 
-    public Integer getLote() { return lote; }
-    public void setlote(Integer lote) { this.lote = lote; }
+    public EstoqueId getId() { return id; }
+    public void setId(EstoqueId id) { this.id = id; }
 
     public Produto getProduto() { return produto; }
     public void setProduto(Produto produto) { this.produto = produto; }
