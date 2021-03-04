@@ -3,6 +3,7 @@ package br.edu.ifpe.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.persistence.Column;
@@ -20,31 +21,22 @@ public class Categoria {
     private boolean perecivel;
     private boolean congelado;
 
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @ManyToOne
+    private Usuario supervisor;
 
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
-    public boolean getPerecivel() {
-        return perecivel;
-    }
-    public void setPerecivel(boolean perecivel) {
-        this.perecivel = perecivel;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public boolean getCongelado() {
-        return congelado;
-    }
-    public void setCongelado(boolean congelado) {
-        this.congelado = congelado;
-    }
+    public boolean getPerecivel() { return perecivel; }
+    public void setPerecivel(boolean perecivel) { this.perecivel = perecivel; }
+
+    public boolean getCongelado() { return congelado; }
+    public void setCongelado(boolean congelado) { this.congelado = congelado; }
+
+    public Usuario getSupervisor() { return supervisor; }
+    public void setSupervisorId(Usuario supervisor) { this.supervisor = supervisor; }
+
 }
