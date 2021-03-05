@@ -1,6 +1,5 @@
 package br.edu.ifpe.controllers;
 
-import br.edu.ifpe.models.Estoque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
