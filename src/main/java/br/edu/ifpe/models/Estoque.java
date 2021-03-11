@@ -31,6 +31,9 @@ public class Estoque {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataValidade;
 
+    @ManyToOne
+    private Usuario supervisor;
+
     public EstoqueId getId() { return id; }
     public void setId(EstoqueId id) { this.id = id; }
 
@@ -45,5 +48,8 @@ public class Estoque {
 
     public LocalDate getDataValidade() { return dataValidade; }
     public void setDataValidade(LocalDate dataValidade) { this.dataValidade = dataValidade; }
+
+    public Usuario getSupervisor() { return supervisor; }
+    public void setSupervisorId(Usuario supervisor) { this.supervisor = supervisor; }
 
 }

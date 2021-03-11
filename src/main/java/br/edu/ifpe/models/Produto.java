@@ -22,6 +22,9 @@ public class Produto {
     @ManyToOne(cascade = CascadeType.REMOVE) @NotNull
     private Categoria categoria;
 
+    @ManyToOne
+    private Usuario supervisor;
+
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
@@ -31,4 +34,7 @@ public class Produto {
     public Categoria getCategoria() { return categoria; }
     public void setCategoria(Categoria categoria) { this.categoria = categoria; }
     
+    public Usuario getSupervisor() { return supervisor; }
+    public void setSupervisorId(Usuario supervisor) { this.supervisor = supervisor; }
+
 }
